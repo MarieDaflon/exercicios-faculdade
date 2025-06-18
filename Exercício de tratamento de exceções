@@ -1,0 +1,40 @@
+ # Crie um programa com interface gráfica em Python
+ # que receba dois números e realize a soma de ambos
+
+import tkinter as tk
+from tkinter import messagebox, Label
+
+
+def dividir_numeros():
+     try:
+          num1 = int(entry_num1.get())
+          num2 = int(entry_num2.get())
+          resultado = num1 / num2
+          messagebox.showinfo("Resultado", f"A divisão dos números é: {resultado}")
+     except ValueError:
+          messagebox.showerror("Erro", "Por favor, insira números válidos.")
+     except ZeroDivisionError:
+          messagebox.showerror("Erro", "Divisão por zero não é permitida.")
+
+# Criando a janela
+janela = tk.Tk()
+janela.title("Calculadora de Divisão")
+
+# Criando os widgets
+Label_num1 = tk.Label(janela, text="Número 1:")
+Label_num1.grid(row=0, column=0, padx=10, pady=5, sticky="e")
+
+entry_num1 = tk.Entry(janela)
+entry_num1.grid(row=0, column=1, padx=10, pady=5)
+
+Label_num2 = tk.Label(janela, text="Número 2:")
+Label_num2.grid(row=1, column=0, padx=10, pady=5, sticky="e")
+
+entry_num2 = tk.Entry(janela)
+entry_num2.grid(row=1, column=1, padx=10, pady=5)
+
+botao_dividir = tk.Button(janela, text="Divisão", command=dividir_numeros)
+botao_dividir.grid(row=2, columnspan=2, padx=10, pady=5)
+
+# Rodando o loop principal
+janela.mainloop()
